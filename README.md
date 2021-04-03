@@ -6,3 +6,6 @@ Projeto do curso da Rocketseat
 
 # biblioteca para animaçoões  - framer-motion
 - https://www.framer.com/motion/
+
+# biblioteca de grafico
+- https://apexcharts.com/
