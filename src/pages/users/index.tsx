@@ -41,13 +41,12 @@ export default function UserList() {
                                         <Th>
                                             Data de cadastro
                                         </Th>
-                                        <Th width='8'></Th>                               </Tr>
+                                        <Th width='8'></Th>
+                                    </Tr>
                                 </Thead>
-                                <Tbody>
-                                   
-                                   
 
-                                <Tr>
+                                <Tbody>
+                                    <Tr>
                                         <Td px='6'>
                                             <Checkbox colorScheme='pink' />
                                         </Td>
@@ -68,7 +67,6 @@ export default function UserList() {
                                             </Button>
                                         </Td>
                                     </Tr>
-
 
                                     <Tr>
                                         <Td px='6'>
@@ -116,7 +114,7 @@ export default function UserList() {
                                 </Tbody>
                             </Table>
                         </Flex>
-                        
+
                         <Pagination />
                     </Box>
                 </Box>
