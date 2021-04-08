@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Button, Icon, Table, Thead, Tr, Th, Tbody, Td, Text, Checkbox, useBreakpointValue } from "@chakra-ui/react"
+import Link from "next/link"
 import { RiAddLine, RiPencilLine } from "react-icons/ri"
 
 import { Header } from "../../components/Header"
@@ -22,6 +23,7 @@ export default function UserList() {
                         <Heading size='lg' fontWeight='normal'>
                             Usuários
                         </Heading>
+                        <Link href='/users/create' passHref>
                         <Button
                             as='a'
                             size='sm'
@@ -29,7 +31,7 @@ export default function UserList() {
                             leftIcon={<Icon as={RiAddLine} fontSize={20} />}>
                             Criar usuário
                         </Button>
-
+                        </Link>
                     </Flex>
 
                     <Box flex='1' borderRadius={8} bg='gray.800' p='8'>
