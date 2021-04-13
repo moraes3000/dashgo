@@ -9,3 +9,9 @@ Projeto do curso da Rocketseat
 
 # biblioteca de grafico
 - https://apexcharts.com/
+
+
+# biblioteca para formularios
+- https://formik.org/
+- https://react-hook-form.com/
+- https://github.com/unform/unform
