@@ -15,3 +15,5 @@ Projeto do curso da Rocketseat
 - https://formik.org/
 - https://react-hook-form.com/
 - https://github.com/unform/unform
+
+- https://github.com/jquense/yup
