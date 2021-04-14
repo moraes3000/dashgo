@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Button, Icon, Table, Thead, Tr, Th, Tbody, Td, Text, Checkbox, useBreakpointValue } from "@chakra-ui/react"
 import Link from "next/link"
+import { useEffect } from "react"
 import { RiAddLine, RiPencilLine } from "react-icons/ri"
 
 import { Header } from "../../components/Header"
@@ -11,6 +12,12 @@ export default function UserList() {
         base: false,
         lg: true,
     })
+
+    useEffect(() => {
+        fetch('http://localhost:3000/api/users')
+            .then(response => response.json())
+            .then(data => console.log(data))
+    }, [])
 
     return (
         <Box>
@@ -24,12 +31,12 @@ export default function UserList() {
                             Usuários
                         </Heading>
                         <Link href='/users/create' passHref>
-                        <Button
-                            as='a'
-                            size='sm'
-                            fontSize='sm' colorScheme='pink'
-                            leftIcon={<Icon as={RiAddLine} fontSize={20} />}>
-                            Criar usuário
+                            <Button
+                                as='a'
+                                size='sm'
+                                fontSize='sm' colorScheme='pink'
+                                leftIcon={<Icon as={RiAddLine} fontSize={20} />}>
+                                Criar usuário
                         </Button>
                         </Link>
                     </Flex>
@@ -39,7 +46,7 @@ export default function UserList() {
                             <Table colorScheme='whiteAlpha'>
                                 <Thead>
                                     <Tr>
-                                        <Th px={['4','4','6']} color='gray.300' width='8'>
+                                        <Th px={['4', '4', '6']} color='gray.300' width='8'>
                                             <Checkbox colorScheme='pink' />
                                         </Th>
                                         <Th>
@@ -54,7 +61,7 @@ export default function UserList() {
 
                                 <Tbody>
                                     <Tr>
-                                        <Td px={['4','4','6']}>
+                                        <Td px={['4', '4', '6']}>
                                             <Checkbox colorScheme='pink' />
                                         </Td>
                                         <Td>
@@ -76,7 +83,7 @@ export default function UserList() {
                                     </Tr>
 
                                     <Tr>
-                                        <Td px={['4','4','6']}>
+                                        <Td px={['4', '4', '6']}>
                                             <Checkbox colorScheme='pink' />
                                         </Td>
                                         <Td>
@@ -98,7 +105,7 @@ export default function UserList() {
                                     </Tr>
 
                                     <Tr>
-                                        <Td px={['4','4','6']}>
+                                        <Td px={['4', '4', '6']}>
                                             <Checkbox colorScheme='pink' />
                                         </Td>
                                         <Td>
