@@ -15,9 +15,23 @@ export default function UserList() {
         const response = await fetch('http://localhost:3000/api/users')
         const data = await response.json()
 
-        return data
+        const users = data.users.map(user => {
+            return {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                create_at: new Date(user.create_at).toLocaleDateString('pt-BR', {
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric'
+                })
+            }
+        });
+
+        return users;
+
     })
-    console.log(data)
+    // console.log(data)
 
     const isWideVersion = useBreakpointValue({
         base: false,
@@ -78,71 +92,34 @@ export default function UserList() {
                                         </Thead>
 
                                         <Tbody>
-                                            <Tr>
-                                                <Td px={['4', '4', '6']}>
-                                                    <Checkbox colorScheme='pink' />
-                                                </Td>
-                                                <Td>
-                                                    <Box>
-                                                        <Text fontSize='bold'>Bruno Moraes</Text>
-                                                        <Text fontSize='sm' color='gray.300'>bruno_bmoraes@hotmail.com</Text>
-                                                    </Box>
-                                                </Td>
-                                                {isWideVersion && <Td>03 de Abril,2021</Td>}
-                                                <Td>
-                                                    <Button
-                                                        as='a'
-                                                        size='sm'
-                                                        fontSize='sm' colorScheme='purple'
-                                                        leftIcon={<Icon as={RiPencilLine} fontSize={16} />}>
-                                                        Editar
-                                            </Button>
-                                                </Td>
-                                            </Tr>
 
-                                            <Tr>
-                                                <Td px={['4', '4', '6']}>
-                                                    <Checkbox colorScheme='pink' />
-                                                </Td>
-                                                <Td>
-                                                    <Box>
-                                                        <Text fontSize='bold'>Bruno Moraes</Text>
-                                                        <Text fontSize='sm' color='gray.300'>bruno_bmoraes@hotmail.com</Text>
-                                                    </Box>
-                                                </Td>
-                                                {isWideVersion && <Td>03 de Abril,2021</Td>}
-                                                <Td>
-                                                    <Button
-                                                        as='a'
-                                                        size='sm'
-                                                        fontSize='sm' colorScheme='purple'
-                                                        leftIcon={<Icon as={RiPencilLine} fontSize={16} />}>
-                                                        Editar
-                                            </Button>
-                                                </Td>
-                                            </Tr>
+                                            {data.map(user => {
+                                                return (
+                                                    <Tr key={user.id}>
+                                                        <Td px={['4', '4', '6']}>
+                                                            <Checkbox colorScheme='pink' />
+                                                        </Td>
+                                                        <Td>
+                                                            <Box>
+                                                                <Text fontSize='bold'>{user.name}</Text>
+                                                                <Text fontSize='sm' color='gray.300'>{user.email}</Text>
+                                                            </Box>
+                                                        </Td>
+                                                        {isWideVersion && <Td>{user.create_at}</Td>}
+                                                        <Td>
+                                                            <Button
+                                                                as='a'
+                                                                size='sm'
+                                                                fontSize='sm' colorScheme='purple'
+                                                                leftIcon={<Icon as={RiPencilLine} fontSize={16} />}>
+                                                                Editar
+                                                    </Button>
+                                                        </Td>
+                                                    </Tr>
+                                                )
+                                            })}
 
-                                            <Tr>
-                                                <Td px={['4', '4', '6']}>
-                                                    <Checkbox colorScheme='pink' />
-                                                </Td>
-                                                <Td>
-                                                    <Box>
-                                                        <Text fontSize='bold'>Bruno Moraes</Text>
-                                                        <Text fontSize='sm' color='gray.300'>bruno_bmoraes@hotmail.com</Text>
-                                                    </Box>
-                                                </Td>
-                                                {isWideVersion && <Td>03 de Abril,2021</Td>}
-                                                <Td>
-                                                    <Button
-                                                        as='a'
-                                                        size='sm'
-                                                        fontSize='sm' colorScheme='purple'
-                                                        leftIcon={<Icon as={RiPencilLine} fontSize={16} />}>
-                                                        Editar
-                                            </Button>
-                                                </Td>
-                                            </Tr>
+
                                         </Tbody>
                                     </Table>
                                 </Flex>
