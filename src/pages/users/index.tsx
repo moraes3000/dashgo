@@ -1,4 +1,4 @@
-import { Link, Box, Flex, Heading, Button, Icon, Table, Thead, Tr, Th, Tbody, Td, Text, Checkbox, useBreakpointValue, Spinner } from "@chakra-ui/react"
+import { Link, Box, Flex, Heading, Button, Icon, Table, Thead, Tr, Th, Tbody, Td, Text, Checkbox, useBreakpointValue, Spinner, Avatar } from "@chakra-ui/react"
 import NextLink from "next/link"
 import { useState } from "react"
 import { RiAddLine, RiPencilLine } from "react-icons/ri"
@@ -91,6 +91,9 @@ export default function UserList() {
                                                         <Td px={['4', '4', '6']}>
                                                             <Checkbox colorScheme='pink' />
                                                         </Td>
+                                                        {/* <Td>
+                                                            <Avatar size='md' name={user.name} src={user.avatar} />
+                                                        </Td> */}
                                                         <Td>
                                                             <Box>
                                                                 <Link color='purple.400' onMouseEnter={() => handlePrefetchUser(user.id)}>
