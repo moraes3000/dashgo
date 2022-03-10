@@ -78,7 +78,8 @@ export default function UserList() {
                                                     Usuário
                                                 </Th>
                                                 {isWideVersion && <Th>  Data de cadastro </Th>}
-                                                <Th width='8'></Th>
+                                                {isWideVersion && <Th width='8'></Th>}
+
                                             </Tr>
                                         </Thead>
 
@@ -99,16 +100,20 @@ export default function UserList() {
                                                                 <Text fontSize='sm' color='gray.300'>{user.email}</Text>
                                                             </Box>
                                                         </Td>
-                                                        {isWideVersion && <Td>{user.create_at}</Td>}
-                                                        <Td>
-                                                            <Button
-                                                                as='a'
-                                                                size='sm'
-                                                                fontSize='sm' colorScheme='purple'
-                                                                leftIcon={<Icon as={RiPencilLine} fontSize={16} />}>
-                                                                Editar
-                                                            </Button>
-                                                        </Td>
+                                                        {isWideVersion &&
+                                                            <Td>{user.create_at}</Td>
+                                                        }
+                                                        {isWideVersion &&
+                                                            <Td>
+                                                                <Button
+                                                                    as='a'
+                                                                    size='sm'
+                                                                    fontSize='sm' colorScheme='purple'
+                                                                    leftIcon={<Icon as={RiPencilLine} fontSize={16} />}>
+                                                                    Editar
+                                                                </Button>
+                                                            </Td>
+                                                        }
                                                     </Tr>
                                                 )
                                             })}

@@ -25,10 +25,10 @@ export default function SignIn() {
 
   const { errors } = formState
   console.log(errors)
-  const handleSingIn: SubmitHandler<SingInFormData> = async (values) => {
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    console.log(values)
 
+  const handleSingIn: SubmitHandler<SingInFormData> = async (values) => {
+    await new Promise(resolve => setTimeout(resolve, 2000)) // deplay para teste
+    console.log(values)
   }
 
   return (
@@ -50,18 +50,27 @@ export default function SignIn() {
       >
 
         <Stack spacing='4'>
-          <Input name='email' type='email' label='E-mail'
+          <Input
+            name='email'
+            type='email'
+            label='E-mail'
             error={errors.email}
             {...register('email')}
           // {...register('email', { required: 'email obrigatorio' })}
           // ref={register({required:'email obrigatorio'})}
           />
-          <Input name='password' type='password' label='Senha' error={errors.password} {...register('password')} />
+          <Input
+            name='password'
+            type='password'
+            label='Senha'
+            error={errors.password}
+            {...register('password')}
+          />
         </Stack>
 
         <Button type='submit' mt='6' colorScheme='pink' size='lg' isLoading={formState.isSubmitting}>
           Entrar
-          </Button>
+        </Button>
 
       </Flex>
     </Flex>

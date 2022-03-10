@@ -17,17 +17,24 @@ export function Search() {
             px='8'
             ml='6'
             maxWidth={400}
-            align='center'
+            alignSelf='center'
             color='gray.200'
             position='relative'
             bg='gray.800'
             borderRadius='full'
         >
-            <Input color='gray.500' variant='unstyled' placeholder='Buscar na plataforma'
-                _placeholder={{ color: 'gray.400' }} mr='4'
+            <Input
+                color='gray.50'
+                variant='unstyled'
+                placeholder='Buscar na plataforma'
+                _placeholder={{
+                    color: 'gray.400'
+                }}
+                mr='4'
                 ref={searchInputRef}
                 autoFocus
             // value={search} onChange={event => setSearch(event.target.value)}
+
             />
             <Icon as={RiSearchLine} fontSize='24' />
 

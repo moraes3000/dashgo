@@ -24,7 +24,7 @@ type CreateUserFormData = {
 const createUserFormSchame = yup.object().shape({
     name: yup.string().required('Nome obrigatório'),
     email: yup.string().required('E-mail obrigatório').email('E-mail Invalido'),
-    password: yup.string().required('Senha obrigatório').min(6, 'No minimo 6 caracteres'),
+    password: yup.string().required('Senha obrigatório').min(6, 'No mínimo 6 caracteres'),
     password_confirmation: yup.string().oneOf([
         null, yup.ref('password')
     ], "A senhas precisam ser iguais")
@@ -39,13 +39,12 @@ export default function CreateUser() {
             user: {
                 ...user,
                 created_ad: new Date(),
-
             }
         })
         return response.data.user;
-    },{
+    }, {
         //limpar o cache
-        onSuccess:()=>{
+        onSuccess: () => {
             queryClient.invalidateQueries('users')
         }
     })
@@ -57,11 +56,10 @@ export default function CreateUser() {
     const { errors } = formState
 
     const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
-        // await new Promise(resolve => setTimeout(resolve, 2000))
-        // console.log(values)
-
-        await createUser.mutateAsync(values)
-        router.push('/users')
+        await new Promise(resolve => setTimeout(resolve, 2000))
+        console.log(values)
+        // await createUser.mutateAsync(values)
+        // router.push('/users')
     }
 
 
@@ -71,8 +69,21 @@ export default function CreateUser() {
 
             <Flex w='100%' my='6' maxWidth={1480} mx='auto' px='6'>
                 <Sidebar />
-                <Box as='form' onSubmit={handleSubmit(handleCreateUser)} flex='1' borderRadius={8} bg='gray.800' p={['6', '8']}>
-                    <Heading size='lg' fontWeight='normal'  >Criar usuário</Heading>
+                <Box
+                    as='form'
+                    onSubmit={handleSubmit(handleCreateUser)}
+                    flex='1'
+                    borderRadius={8}
+                    bg='gray.800'
+                    p={['6',
+                        '8']}
+                >
+                    <Heading
+                        size='lg'
+                        fontWeight='normal'
+                    >
+                        Criar usuário
+                    </Heading>
                     <Divider my='6' borderColor='gray.700' />
                     <VStack spacing={['6', '8']}>
                         <SimpleGrid minChildWidth='240px' spacing={['6', '8']} w='100%'>
@@ -81,13 +92,14 @@ export default function CreateUser() {
                                 error={errors.name}
                             />
                             <Input name='email' type='email' label='E-mail'
+                                {...register('email')}
                                 error={errors.email}
-                                {...register('email')} />
+                            />
                         </SimpleGrid>
 
                         <SimpleGrid minChildWidth='240px' spacing={['6', '8']} w='100%'>
                             <Input name='password' type='password' label='Senha' error={errors.password}  {...register('password')} />
-                            <Input name='password_confirmation' type='password_confirmation' label='Confirmação de senha' error={errors.password_confirmation}  {...register('password_confirmation')} />
+                            <Input name='password_confirmation' type='password' label='Confirmação de senha' error={errors.password_confirmation}  {...register('password_confirmation')} />
                         </SimpleGrid>
 
                     </VStack>

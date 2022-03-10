@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </SidebarDrawerProvider>
       </ChakraProvider>
       {/* component para debug */}
-      <ReactQueryDevtools /> 
+      <ReactQueryDevtools />
     </QueryClientProvider>
   )
 }
