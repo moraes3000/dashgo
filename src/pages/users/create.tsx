@@ -56,10 +56,10 @@ export default function CreateUser() {
     const { errors } = formState
 
     const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
-        await new Promise(resolve => setTimeout(resolve, 2000))
-        console.log(values)
-        // await createUser.mutateAsync(values)
-        // router.push('/users')
+        // await new Promise(resolve => setTimeout(resolve, 2000))
+        // console.log(values)
+        await createUser.mutateAsync(values)
+        router.push('/users')
     }
 
 
